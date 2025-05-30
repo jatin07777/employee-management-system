@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- External CSS files -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Login Section -->
+    <div id="loginSection" class="container">
+        <div class="login-container">
+            <h1>Employee Management System</h1>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn primary">Login</button>
+            </form>
+            <div id="error-message" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Main Content Section (Hidden until logged in) -->
+    <div id="mainContent" class="container" style="display: none;">
+        <!-- Header section with title and add employee button -->
+        <header>
+            <h1>Employee Management System</h1>
+            <div class="header-buttons">
+                <a href="about.html" class="btn primary">
+                    <i class="fas fa-info-circle"></i> About
+                </a>
+                <button id="addEmployeeBtn" class="btn primary">
+                    <i class="fas fa-plus"></i> Add Employee
+                </button>
+            </div>
+        </header>
+
+        <!-- Search and filter section -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search employees...">
+            <select id="departmentFilter">
+                <option value="">All Departments</option>
+                <option value="IT">IT</option>
+                <option value="HR">HR</option>
+                <option value="Finance">Finance</option>
+                <option value="Marketing">Marketing</option>
+            </select>
+        </div>
+
+        <!-- Main table container for employee list -->
+        <div class="employees-container">
+            <table id="employeesTable">
+                <!-- Table header with column names -->
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Position</th>
+                        <th>Salary</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <!-- Table body where employee rows will be dynamically added -->
+                <tbody id="employeesList">
+                    <!-- Employee rows will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal for adding/editing employees -->
+    <div id="employeeModal" class="modal">
+        <div class="modal-content">
+            <!-- Close button for the modal -->
+            <span class="close">&times;</span>
+            <!-- Modal title that changes based on action (Add/Edit) -->
+            <h2 id="modalTitle">Add Employee</h2>
+            <!-- Employee form with all required fields -->
+            <form id="employeeForm">
+                <!-- Full Name input field -->
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <!-- Email input field -->
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <!-- Department selection dropdown -->
+                <div class="form-group">
+                    <label for="department">Department:</label>
+                    <select id="department" required>
+                        <option value="IT">IT</option>
+                        <option value="HR">HR</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Marketing">Marketing</option>
+                    </select>
+                </div>
+                <!-- Position input field -->
+                <div class="form-group">
+                    <label for="position">Position:</label>
+                    <input type="text" id="position" required>
+                </div>
+                <!-- Salary input field -->
+                <div class="form-group">
+                    <label for="salary">Salary:</label>
+                    <input type="number" id="salary" required>
+                </div>
+                <!-- Form submit button -->
+                <button type="submit" class="btn primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
